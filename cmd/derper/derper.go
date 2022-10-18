@@ -183,7 +183,7 @@ func main() {
 	mux.HandleFunc("/derp/probe", probeHandler)
 	go refreshBootstrapDNSLoop()
 	mux.HandleFunc("/bootstrap-dns", handleBootstrapDNS)
-	mux.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	mux.Handle("/derper", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		w.WriteHeader(200)
 		io.WriteString(w, `<html><body>
